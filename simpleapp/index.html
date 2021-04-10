@@ -12,12 +12,19 @@
         <script>
             const element = React.createElement(
                 'div',
-                {title: 'Outer Div'},
-                React.createElement(
-                    'h1',
-                    null,
-                    'Hola Mundo'
-                )
+                { title: 'Outer Div' },
+                [
+                    React.createElement(
+                        'h1',
+                        null,
+                        'Hola Mundo'
+                    ),
+                    React.createElement(
+                        'h2',
+                        null,
+                        'que te pasa putas!'
+                    )
+                ]
             );
             ReactDOM.render(element, document.getElementById('contents'));
         </script>
