@@ -3,16 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://github.com/jaradat-pdb/ycamp/blob/master/resources/css/lib/googlefonts/gfonts.css" type="text/css">
         <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+        <style>
+            #jsxDiv {
+                background-color: aqua;
+                font-family: 'Indie Flower', cursive;
+            }
+        </style>
         <title>ProMERN Simple App</title>
     </head>
     <body>
-        <div id="contents"></div>
-        <script>
-            const element = React.createElement(
+        <div id="contents">
+            <div id="elementDiv"></div>
+            <div id="jsxDiv"></div>
+        </div>
+        <script type="text/javascript">
+            const elementDiv = React.createElement(
                 'div',
-                { title: 'Outer Div' },
+                { title: 'Element div' },
                 [
                     React.createElement(
                         'h1',
@@ -26,7 +37,15 @@
                     )
                 ]
             );
-            ReactDOM.render(element, document.getElementById('contents'));
+            ReactDOM.render(elementDiv, document.getElementById('elementDiv'));
+        </script>
+        <script type="text/babel">
+            const jsxDiv = (
+                <div title="JSX div">
+                    <h3>por que muy serioso?</h3>
+                </div>
+            );
+            ReactDOM.render(jsxDiv, document.getElementById('jsxDiv'));
         </script>
     </body>
 </html>
