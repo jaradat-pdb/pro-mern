@@ -3,11 +3,12 @@ const continents = [
 ];
 const continentsHello = Array.from(
     continents,
-    c => `Hello {c}!`
+    c => `Hello ${c}!`
 );
 
 const continentsDiv = (
     <div title="Continents div">
-        <h1>{continentsHello.join(' ')}</h1>
+        <h1>{continentsHello.join('   ')}</h1>
     </div>
 );
+ReactDOM.render(continentsDiv, document.getElementById('continentsDiv'));
