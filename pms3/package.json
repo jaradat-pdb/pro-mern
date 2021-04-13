@@ -4,7 +4,9 @@
   "description": "Pro MERN Stack 2nd Ed.",
   "main": "app.js",
   "scripts": {
-    "start": "node server/app.js",
+    "start": "nodemon -w server server/app.js",
+    "compile": "babel src/jsx --out-dir public",
+    "watch": "babel src/jsx --out-dir public --watch --verbose",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
