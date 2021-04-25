@@ -1,6 +1,8 @@
 class HelloContinentsComponent extends React.Component {
     render() {
-        const continents = ['Africa', 'Antartica', 'Australia', 'Asia', 'Europe', 'North America', 'South America'];
+        const continents = [
+            'Africa', 'Antartica', 'Australia', 'Asia', 'Europe', 'North America', 'South America'
+        ];
         const helloContinents = Array.from(continents, (c, i) => `${i+1}. Hello ${c}!`);
         
         return (
