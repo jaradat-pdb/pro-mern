@@ -1,23 +1,15 @@
-const elementDiv = React.createElement(
-    'div',
-    { title: 'Element div' },
-    [
-        React.createElement(
-            'h1',
-            null,
-            'Hola Mundo'
-        ),
-        React.createElement(
-            'h2',
-            null,
-            'que te pasa putas!'
-        )
-    ]
-);
-const jsxDiv = (
-    <div title="JSX div">
-        <h3>por que muy serioso?</h3>
-    </div>
-);
-ReactDOM.render(jsxDiv, document.getElementById('jsxDiv'));
-ReactDOM.render(elementDiv, document.getElementById('elementDiv'));
+class HelloContinentsComponent extends React.Component {
+    render() {
+        const continents = ['Africa', 'Antartica', 'Australia', 'Asia', 'Europe', 'North America', 'South America'];
+        const helloContinents = Array.from(continents, (c, i) => `${i+1}. Hello ${c}!`);
+        
+        return (
+            <div title="Hello Continents div">
+                <h1>{helloContinents.join('\r\n')}</h1>
+            </div>
+        );
+    }
+}
+
+const element = <HelloContinentsComponent/>;
+ReactDOM.render(element, document.getElementById('classDiv'));
