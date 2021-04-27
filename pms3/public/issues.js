@@ -22,6 +22,24 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+var issues = [{
+  id: 1,
+  status: 'New',
+  owner: 'Waleed',
+  effort: 5,
+  created: new Date('2021-04-20'),
+  due: undefined,
+  title: 'Error in console when clicking Add'
+}, {
+  id: 2,
+  status: 'Assigned',
+  owner: 'Nasser',
+  effort: 7,
+  created: new Date('2021-04-18'),
+  due: new Date('2021-05-01'),
+  title: 'Missing bottom border on panel'
+}];
+
 var IssueAdd = /*#__PURE__*/function (_React$Component) {
   _inherits(IssueAdd, _React$Component);
 
