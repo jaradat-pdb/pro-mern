@@ -19,6 +19,13 @@ const initialIssues = [
     }
 ];
 
+const sampleIssue = {
+    status: 'New',
+    owner: 'Khaled',
+    effort: 3,
+    title: 'Completion date should be optional'
+};
+
 class IssueAdd extends React.Component {
     render() {
         return (
@@ -41,10 +48,23 @@ class IssueTable extends React.Component {
         this.state = {
             issues: []
         };
+        setTimeout(() => {
+            this.createIssue(sampleIssue);
+        }, 10000);
     };
 
     componentDidMount() {
         this.loadData();
+    };
+
+    createIssue(issue) {
+        const newIssueList = this.state.issues.slice();
+        issue.id = this.state.issues.length + 1;
+        issue.created = new Date();
+        newIssueList.push(issue);
+        this.setState({
+            issues: newIssueList
+        });
     };
 
     loadData() {
@@ -80,9 +100,12 @@ class IssueTable extends React.Component {
     };
 }
 
+let issueRowRenderCounter = 0;
 class IssueRow extends React.Component {
     render() {
         const issue = this.props.issue;
+        issueRowRenderCounter += 1;
+        console.log(`Rendering issue with id=${issue.id}, render call=${issueRowRenderCounter}`);
         return (
             <tr>
                 <td>{issue.id}</td>

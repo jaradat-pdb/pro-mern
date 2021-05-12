@@ -39,6 +39,12 @@ var initialIssues = [{
   due: new Date('2021-05-01'),
   title: 'Missing bottom border on panel'
 }];
+var sampleIssue = {
+  status: 'New',
+  owner: 'Khaled',
+  effort: 3,
+  title: 'Completion date should be optional'
+};
 
 var IssueAdd = /*#__PURE__*/function (_React$Component) {
   _inherits(IssueAdd, _React$Component);
@@ -100,6 +106,9 @@ var IssueTable = /*#__PURE__*/function (_React$Component3) {
     _this.state = {
       issues: []
     };
+    setTimeout(function () {
+      _this.createIssue(sampleIssue);
+    }, 10000);
     return _this;
   }
 
@@ -107,6 +116,17 @@ var IssueTable = /*#__PURE__*/function (_React$Component3) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.loadData();
+    }
+  }, {
+    key: "createIssue",
+    value: function createIssue(issue) {
+      var newIssueList = this.state.issues.slice();
+      issue.id = this.state.issues.length + 1;
+      issue.created = new Date();
+      newIssueList.push(issue);
+      this.setState({
+        issues: newIssueList
+      });
     }
   }, {
     key: "loadData",
@@ -137,6 +157,8 @@ var IssueTable = /*#__PURE__*/function (_React$Component3) {
   return IssueTable;
 }(React.Component);
 
+var issueRowRenderCounter = 0;
+
 var IssueRow = /*#__PURE__*/function (_React$Component4) {
   _inherits(IssueRow, _React$Component4);
 
@@ -152,6 +174,8 @@ var IssueRow = /*#__PURE__*/function (_React$Component4) {
     key: "render",
     value: function render() {
       var issue = this.props.issue;
+      issueRowRenderCounter += 1;
+      console.log("Rendering issue with id=".concat(issue.id, ", render call=").concat(issueRowRenderCounter));
       return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, issue.id), /*#__PURE__*/React.createElement("td", null, issue.status), /*#__PURE__*/React.createElement("td", null, issue.owner), /*#__PURE__*/React.createElement("td", null, issue.created.toDateString()), /*#__PURE__*/React.createElement("td", null, issue.effort), /*#__PURE__*/React.createElement("td", null, issue.due ? issue.due.toDateString() : ''), /*#__PURE__*/React.createElement("td", null, issue.title));
     }
   }]);
